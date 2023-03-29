@@ -1,3 +1,17 @@
+@font-face {
+    font-family: JacquesFrancois;
+    src: url(Fonts/JacquesFrancois.ttf);
+}
+
+@font-face {
+    font-family: Inter;
+    src: url(Fonts/Inter.ttf);
+}
+
+p {font-family: Inter; font-weight: normal; font-size: 125%;}
+
+h1 {font-family: JacquesFrancois; font-weight: normal; font-size: 150%;}
+
 #div
 {
   opacity: 1;
