@@ -13,17 +13,33 @@ h1 {font-family: JacquesFrancois; font-weight: normal; font-size: 150%;}
 {
     background: #FFFFFF;
     width: 38%;
-    height: 85%;
+    height: 100%; /* make this take up full space */
     align-content: center;
-    float: left; padding-top: 8%; padding-bottom: 8%;
+    float: left;
+    padding-top: 8%; /* added the padding back */
+    padding-bottom: 8%;
     transform: translateX(0px);
+    display: flex; /* turns this into a flex container */
+    flex-direction: column; /* makes children flex up and down */
+    box-sizing: border-box; /* makes it so that height: 100% works correctly again */
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#buttons::-webkit-scrollbar {
+  display: none;
+}
+
+#container::-webkit-scrollbar {
+  display: none;
 }
 
 #buttons a {text-decoration: none; color: #000000; font-size: 110%;}
 
 @media screen and (min-width: 360px)
 {
-    #buttons {transform: translateX(-500px); transition: var(--tran-05);}
+    #buttons {transform: translateX(-500px);}
     
     #info
     {
@@ -39,7 +55,7 @@ h1 {font-family: JacquesFrancois; font-weight: normal; font-size: 150%;}
         height: 100%;
         background-color: #F5F5F5;
     }
-    
+
     #toggle_button
     {
         position: absolute;
@@ -57,9 +73,14 @@ h1 {font-family: JacquesFrancois; font-weight: normal; font-size: 150%;}
 
 @media screen and (min-width: 1290px)
 {
-    #buttons {transform: translateX(0px); position: fixed;}
+    #buttons {transform: translateX(0px); display: flex;}
     
-    #info {width: 50%; position: fixed; top: 45%; left: 70%; transform: translate(-50%, -50%);}
+    #info
+    {
+        width: 50%;
+        position: fixed; top: 45%; left: 70%;
+        transform: translate(-50%, -50%);
+    }
     
     #container
     {
@@ -69,8 +90,11 @@ h1 {font-family: JacquesFrancois; font-weight: normal; font-size: 150%;}
         top: 50%; left: 50%; transform: translate(-50%, -50%);
         background-color: #F5F5F5;
         box-shadow: 0 0 6px #333333;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
-    
+
     #toggle_button
     {
         /*position: absolute;
@@ -97,6 +121,10 @@ h1 {font-family: JacquesFrancois; font-weight: normal; font-size: 150%;}
     padding-top: 5%; padding-bottom: 5%;
     float: left;
     width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #b
@@ -105,6 +133,10 @@ h1 {font-family: JacquesFrancois; font-weight: normal; font-size: 150%;}
     padding-top: 5%; padding-bottom: 5%;
     float: left;
     width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #c
@@ -113,6 +145,10 @@ h1 {font-family: JacquesFrancois; font-weight: normal; font-size: 150%;}
     padding-top: 5%; padding-bottom: 5%;
     float: left;
     width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #d
@@ -121,6 +157,10 @@ h1 {font-family: JacquesFrancois; font-weight: normal; font-size: 150%;}
     padding-top: 5%; padding-bottom: 5%;
     float: left;
     width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #info
