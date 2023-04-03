@@ -1,83 +1,133 @@
 body {background-color: #F0F0F0; width: 20%;}
 
-@font-face {
+/* Text */
+@font-face
+{
     font-family: JacquesFrancois;
     src: url(Fonts/JacquesFrancois.ttf);
 }
 
 p {font-family: JacquesFrancois; font-weight: normal; font-size: 125%;}
-
 h1 {font-family: JacquesFrancois; font-weight: normal; font-size: 150%;}
+.buttons a {text-decoration: none; color: #000000; font-size: 110%;}
+#info h1 {text-align: center; font-size: 225%;}
+#info p {text-align: center; font-size: 150%;}
+#cover {width: 25%; height: 25%;}
+#program_img {width: 65%; height: 65%;}
 
-#buttons
+#menu
+{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.buttons
 {
     background: #FFFFFF;
-    width: 38%;
-    height: 100%; /* make this take up full space */
-    align-content: center;
+    width: 38%; height: 100%;
     float: left;
-    padding-top: 8%; /* added the padding back */
-    padding-bottom: 8%;
-    transform: translateX(0px);
-    display: flex; /* turns this into a flex container */
-    flex-direction: column; /* makes children flex up and down */
-    box-sizing: border-box; /* makes it so that height: 100% works correctly again */
+    left: 0%; top: 0%;
+    position: absolute;
+    align-content: center;
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    z-index: 2;
 }
 
-#buttons::-webkit-scrollbar {
-  display: none;
+input
+{
+    opacity: 0;
+    visibility: hidden;
 }
 
-#container::-webkit-scrollbar {
-  display: none;
+#menu:checked ~ .buttons
+{
+    opacity: 1;
+    visibility: visible;
 }
 
-#buttons a {text-decoration: none; color: #000000; font-size: 110%;}
+input[type=checkbox]:checked ~ label
+{
+    transform: translateX(38%);
+}
+
+.buttons::-webkit-scrollbar {display: none;}
+
+#container::-webkit-scrollbar {display: none;}
 
 @media screen and (min-width: 360px)
 {
-    #buttons {transform: translateX(-500px);}
+    .buttons
+    {
+        transform: translateX(0px);
+        transition: all 500ms ease;
+        opacity: 0;
+        visibility: hidden;
+    }
     
     #info
     {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); width: 80%;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60%;
+        height: 60%;
+        z-index: 1;
     }
     
     #container
     {
         width: 100%;
         height: 100%;
-        background-color: #F5F5F5;
+        background-color: #F0F0F0;
     }
 
-    #toggle_button
+    .toggle_button
     {
-        position: absolute;
-        left: 0%;
-        top: -22px;
-        transform: translateY(50%);
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none;   /* Chrome/Safari/Opera */
+        -khtml-user-select: none;    /* Konqueror */
+        -moz-user-select: none;      /* Firefox */
+        -ms-user-select: none;       /* Internet Explorer/Edge */
+        user-select: none;           /* Non-prefixed version, currently supported by any browser but < IE9 */
+        cursor: pointer;
+        top: 0px;
+        transform: translate(5%, 5%);
         background: #D9D9D9;
-        width: 50px; height: 50px;
+        width: 86px; height: 86px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 22px;
+        transition: all 500ms ease;
     }
 }
 
 @media screen and (min-width: 1290px)
 {
-    #buttons {transform: translateX(0px); display: flex;}
+    .buttons
+    {
+        background: #FFFFFF;
+        width: 38%;
+        height: 100%; /* make this take up full space */
+        padding-top: 8%; /* added the padding back */
+        padding-bottom: 8%;
+        transform: translateX(0px);
+        display: flex; /* turns this into a flex container */
+        flex-direction: column; /* makes children flex up and down */
+        box-sizing: border-box; /* makes it so that height: 100% works correctly again */
+        overflow-y: scroll;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        opacity: 1;
+        visibility: visible;
+    }
     
     #info
     {
         width: 50%;
+        height: 60%;
         position: fixed; top: 45%; left: 70%;
         transform: translate(-50%, -50%);
     }
@@ -97,23 +147,10 @@ h1 {font-family: JacquesFrancois; font-weight: normal; font-size: 150%;}
 
     #toggle_button
     {
-        /*position: absolute;
-        left: 39.5%;
-        top: -4%;
-        transform: translate(-50%, 50%);
-        background: #D9D9D9;
-        width: 50px; height: 50px;*/
-        display: none;
-        /*align-items: center;
-        justify-content: center;
-        font-size: 22px;*/
+        opacity: 0;
+        visibility: hidden;
     }
 }
-
-#info h1 {text-align: center; font-size: 225%;}
-#info p {text-align: center; font-size: 150%;}
-#cover {width: 25%; height: 25%;}
-#program_img {width: 65%; height: 65%;}
 
 #a
 {
